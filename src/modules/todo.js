@@ -10,9 +10,19 @@ export default class Todo {
   }
 
   static addTodo = (todo) => {
-    const newTodo = new Todo(todo.description, todo.completed, todo.index);
+    const newTodo = new Todo(
+      todo.description,
+      todo.completed,
+      todo.index,
+    );
     newTodoArray = retrieveData();
     newTodoArray.push(newTodo);
     storeData(newTodoArray);
-  };
+  }
+
+  static removeTodo = (todo) => {
+    newTodoArray = retrieveData();
+    newTodoArray = newTodoArray.filter((element) => element.index !== todo.index);
+    storeData(newTodoArray);
+  }
 }
