@@ -1,3 +1,5 @@
+import './style.css';
+
 const btn = document.getElementById('btn');
 function btnClickHandler() {
   const text = document.createElement('p');
