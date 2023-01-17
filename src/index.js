@@ -4,19 +4,19 @@ const list = document.getElementById('list');
 
 const arr = [
   {
-    description: 'Lorem, ipsum dolor.',
+    description: 'Lorem, ipsum dolor 11',
     completed: false,
-    index: 1,
+    index: 11,
   },
   {
-    description: 'Lorem, ipsum dolor.',
+    description: 'Lorem, ipsum dolor 2',
     completed: true,
     index: 2,
   },
   {
-    description: 'Lorem, ipsum dolor.',
+    description: 'Lorem, ipsum dolor 1',
     completed: false,
-    index: 3,
+    index: 1,
   },
 ];
 
@@ -30,9 +30,11 @@ const appendToDOM = (todo) => {
 };
 
 const loadElements = () => {
-  arr.forEach((todo) => {
-    appendToDOM(todo);
-  });
+  arr
+    .sort((a, b) => a.index - b.index)
+    .forEach((todo) => {
+      appendToDOM(todo);
+    });
 };
 
 window.onload = () => {
