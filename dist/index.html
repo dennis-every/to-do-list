@@ -12,15 +12,22 @@
         Today's To Do
         <img id="refresh" />
       </h1>
-      <label for="add-todo" id="add-todo-label">
-        <input
-          type="text"
-          name="add-todo"
-          id="add-todo"
-          placeholder="Add to your list..."
-        />
-        <img id="enter" />
-      </label>
+      <form
+        action="javascript:void(0);"
+        method="post"
+        type="submit"
+        id="todo-form"
+      >
+        <label for="add-todo" id="add-todo-label">
+          <input
+            type="text"
+            name="add-todo"
+            id="add-todo"
+            placeholder="Add to your list..."
+          />
+          <img id="enter" />
+        </label>
+      </form>
       <ul id="list"></ul>
       <footer><a href="#">Clear all completed</a></footer>
     </main>
