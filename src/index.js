@@ -2,15 +2,18 @@ import './style.css';
 import Refresh from './rotate.svg';
 import Enter from './enter.png';
 import Todo from './modules/todo.js';
-import appendToDOM from './modules/handleDOM.js';
+import { createElement, appendToDOM } from './modules/handleDOM.js';
+import { retrieveData } from './modules/handleData.js';
 
-const arr = [];
+let todoArray = [];
 
 const loadElements = () => {
-  arr
+  todoArray = retrieveData();
+  todoArray
     .sort((a, b) => a.index - b.index)
     .forEach((todo) => {
-      appendToDOM(todo);
+      const todoElement = createElement(todo);
+      appendToDOM(todoElement);
     });
 };
 
@@ -44,8 +47,9 @@ const todoFormHandler = (e) => {
     new Date().valueOf(),
   );
   Todo.addTodo(newTodo);
+  const todoElement = createElement(newTodo);
+  appendToDOM(todoElement);
   todoForm.reset();
-  appendToDOM(newTodo);
 };
 
 todoForm.addEventListener('submit', todoFormHandler);

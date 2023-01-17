@@ -90,3 +90,25 @@ footer > a {
 .icon {
   height: 1rem;
 }
+
+.edit-todo-form {
+  background: lightyellow;
+  padding: 1.5rem;
+  border-bottom: 1px solid #d5d5d5;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-todo-form > label {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.edit-todo-input {
+  border: none;
+  background: lightyellow;
+}
+
+.edit-todo-input:focus {
+  outline: none;
+}

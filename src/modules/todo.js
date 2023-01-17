@@ -9,6 +9,12 @@ export default class Todo {
     this.index = index;
   }
 
+  static getTodo = (index) => {
+    newTodoArray = retrieveData();
+    const todo = newTodoArray.find((x) => x.index.toString() === index.toString());
+    return todo;
+  }
+
   static addTodo = (todo) => {
     const newTodo = new Todo(
       todo.description,
@@ -20,9 +26,21 @@ export default class Todo {
     storeData(newTodoArray);
   }
 
-  static removeTodo = (todo) => {
+  static updateTodo = (todo) => {
     newTodoArray = retrieveData();
     newTodoArray = newTodoArray.filter((element) => element.index !== todo.index);
+    const newTodo = new Todo(
+      todo.description,
+      todo.completed,
+      todo.index,
+    );
+    newTodoArray.push(newTodo);
+    storeData(newTodoArray);
+  }
+
+  static removeTodo = (index) => {
+    newTodoArray = retrieveData();
+    newTodoArray = newTodoArray.filter((element) => element.index.toString() !== index.toString());
     storeData(newTodoArray);
   }
 }
