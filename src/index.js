@@ -1,4 +1,7 @@
 import './style.css';
+import Edit from './ellipsis-vertical.svg';
+import Refresh from './rotate.svg';
+import Enter from './enter.png';
 
 const list = document.getElementById('list');
 
@@ -22,10 +25,18 @@ const arr = [
 
 const appendToDOM = (todo) => {
   const element = document.createElement('li');
+  const editIcon = new Image();
+  editIcon.src = Edit;
+  editIcon.setAttribute('class', 'icon');
+
   element.setAttribute('id', todo.index);
   element.innerHTML = `
-  <input class="checkbox" type="checkbox" ${todo.completed ? 'checked' : ''}/>
-  <span>${todo.description}</span>`;
+  <label>
+    <input class="checkbox" type="checkbox" ${todo.completed ? 'checked' : ''}/>
+    <span>${todo.description}</span>
+  </label
+  `;
+  element.appendChild(editIcon);
   list.appendChild(element);
 };
 
@@ -37,6 +48,22 @@ const loadElements = () => {
     });
 };
 
+const loadRefreshBtn = () => {
+  const refreshBtn = document.getElementById('refresh');
+  refreshBtn.src = Refresh;
+  refreshBtn.alt = 'refresh';
+  refreshBtn.setAttribute('class', 'header-icon');
+};
+
+const loadEnterBtn = () => {
+  const enterBtn = document.getElementById('enter');
+  enterBtn.src = Enter;
+  enterBtn.alt = 'enter';
+  enterBtn.setAttribute('class', 'icon');
+};
+
 window.onload = () => {
   loadElements();
+  loadRefreshBtn();
+  loadEnterBtn();
 };

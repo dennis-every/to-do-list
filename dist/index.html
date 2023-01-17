@@ -8,8 +8,19 @@
   <script defer src="main.js"></script></head>
   <body>
     <main>
-      <h1>Today's To Do</h1>
-      <input type="text" id="add-todo" placeholder="Add to your list..." />
+      <h1>
+        Today's To Do
+        <img id="refresh" />
+      </h1>
+      <label for="add-todo" id="add-todo-label">
+        <input
+          type="text"
+          name="add-todo"
+          id="add-todo"
+          placeholder="Add to your list..."
+        />
+        <img id="enter" />
+      </label>
       <ul id="list"></ul>
       <footer><a href="#">Clear all completed</a></footer>
     </main>
