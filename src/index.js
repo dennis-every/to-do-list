@@ -24,7 +24,7 @@ const appendToDOM = (todo) => {
   const element = document.createElement('li');
   element.setAttribute('id', todo.index);
   element.innerHTML = `
-  <input type="checkbox" ${todo.completed ? 'checked' : ''}/>
+  <input class="checkbox" type="checkbox" ${todo.completed ? 'checked' : ''}/>
   <span>${todo.description}</span>`;
   list.appendChild(element);
 };
