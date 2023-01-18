@@ -83,6 +83,10 @@ footer > a {
   color: #888;
 }
 
+footer > a:hover {
+  text-decoration: underline;
+}
+
 .header-icon {
   height: 2rem;
 }
