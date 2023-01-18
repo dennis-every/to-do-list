@@ -46,5 +46,6 @@ export default class Todo {
       reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
     });
     storeData(reIndexedArray);
+    window.location.reload();
   }
 }
