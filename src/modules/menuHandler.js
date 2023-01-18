@@ -1,10 +1,10 @@
-import createEditFormElement from './editTodoForm.js';
+import createEditElement from './editTodo.js';
 import updateTodoHandler from './updateHandler.js';
 
 const menuEventHandler = (e) => {
   const showElement = e.target.parentElement;
   const indexTodo = showElement.getAttribute('id');
-  const editElement = createEditFormElement(indexTodo);
+  const editElement = createEditElement(indexTodo);
   editElement.addEventListener('submit', updateTodoHandler);
   const todoList = showElement.parentElement;
   todoList.removeChild(showElement);

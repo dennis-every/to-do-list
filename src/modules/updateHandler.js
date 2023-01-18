@@ -1,5 +1,5 @@
 import Menu from '../images/ellipsis-vertical.svg';
-import createEditFormElement from './editTodoForm.js';
+import createEditElement from './editTodo.js';
 import Todo from './todo.js';
 
 const updateTodoHandler = (e) => {
@@ -25,7 +25,7 @@ const updateTodoHandler = (e) => {
   menuIcon.addEventListener('click', (e) => {
     const showElement = e.target.parentElement;
     const indexTodo = showElement.getAttribute('id');
-    const editElement = createEditFormElement(indexTodo);
+    const editElement = createEditElement(indexTodo);
     editElement.addEventListener('submit', updateTodoHandler);
     const todoList = showElement.parentElement;
     todoList.replaceChild(editElement, showElement);
