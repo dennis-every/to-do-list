@@ -1,27 +1,20 @@
 import Menu from '../images/ellipsis-vertical.svg';
 import createEditFormElement from './editTodoForm.js';
-import Todo from './todo.js';
+import updateTodoHandler from './updateHandler.js';
 
-const updateTodoHandler = (e) => {
-  e.preventDefault();
-  const inputElement = document.getElementsByClassName('edit-todo-input')[0];
-  const formElement = inputElement.parentElement.parentElement;
-  const indexTodo = formElement.getAttribute('id');
-  const todo = Todo.getTodo(indexTodo);
-  todo.description = inputElement.value;
-  Todo.updateTodo(todo);
-  const showElement = document.createElement('li');
+const createShowElement = (todo) => {
+  const element = document.createElement('li');
   const menuIcon = new Image();
   menuIcon.src = Menu;
   menuIcon.setAttribute('class', 'icon');
-  showElement.setAttribute('id', todo.index);
-  showElement.innerHTML = `
+  element.setAttribute('id', todo.index);
+  element.innerHTML = `
   <label>
     <input class="checkbox" type="checkbox" ${todo.completed ? 'checked' : ''}/>
     <span>${todo.description}</span>
   </label
   `;
-  showElement.appendChild(menuIcon);
+  element.appendChild(menuIcon);
   menuIcon.addEventListener('click', (e) => {
     const showElement = e.path[1];
     const indexTodo = showElement.getAttribute('id');
@@ -30,7 +23,7 @@ const updateTodoHandler = (e) => {
     const todoList = showElement.parentElement;
     todoList.replaceChild(editElement, showElement);
   });
-  formElement.parentElement.replaceChild(showElement, formElement);
+  return element;
 };
 
-export default updateTodoHandler;
+export default createShowElement;
