@@ -5,6 +5,11 @@ const checkboxHandler = (e) => {
   const todoIndex = showElement.getAttribute('id');
   const todo = Todo.getTodo(todoIndex);
   todo.completed = !todo.completed;
+  if (todo.completed) {
+    showElement.classList.add('completed');
+  } else {
+    showElement.classList.remove('completed');
+  }
   Todo.updateTodo(todo);
 };
 

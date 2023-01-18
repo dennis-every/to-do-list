@@ -116,3 +116,7 @@ footer > a:hover {
 .edit-todo-input:focus {
   outline: none;
 }
+
+.completed {
+  text-decoration: line-through;
+}

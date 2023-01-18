@@ -32,6 +32,11 @@ const createEditElement = (indexTodo) => {
   labelElement.setAttribute('for', 'edit-todo');
   labelElement.setAttribute('id', 'edit-todo-label');
   const checkboxElement = createCheckboxElement(todo.completed);
+  if (todo.completed) {
+    editElement.classList.add('completed');
+  } else {
+    editElement.classList.remove('completed');
+  }
   labelElement.appendChild(checkboxElement);
   const descriptionElement = createDescriptionElement(todo.description);
   labelElement.appendChild(descriptionElement);
