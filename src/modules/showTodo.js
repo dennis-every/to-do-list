@@ -1,9 +1,14 @@
 import Menu from '../images/ellipsis-vertical.svg';
 import createEditFormElement from './editTodoForm.js';
+import Todo from './todo.js';
 import updateTodoHandler from './updateHandler.js';
 
 const changeCheckboxHandler = (e) => {
-  console.log(e.target);
+  const showElement = e.target.parentElement.parentElement;
+  const todoIndex = showElement.getAttribute('id');
+  const todo = Todo.getTodo(todoIndex);
+  todo.completed = !todo.completed;
+  Todo.updateTodo(todo);
 };
 
 const clickMenuHandler = (e) => {
@@ -15,10 +20,13 @@ const clickMenuHandler = (e) => {
   todoList.replaceChild(editElement, showElement);
 };
 
-const createCheckboxElement = () => {
+const createCheckboxElement = (checked) => {
   const checkboxElement = document.createElement('input');
   checkboxElement.setAttribute('class', 'checkbox');
   checkboxElement.setAttribute('type', 'checkbox');
+  if (checked) {
+    checkboxElement.checked = true;
+  }
   checkboxElement.addEventListener('change', changeCheckboxHandler);
   return checkboxElement;
 };
@@ -35,7 +43,7 @@ const createShowElement = (todo) => {
   const showElement = document.createElement('li');
   showElement.setAttribute('id', todo.index);
   const labelElement = document.createElement('label');
-  const checkboxElement = createCheckboxElement();
+  const checkboxElement = createCheckboxElement(todo.completed);
   labelElement.appendChild(checkboxElement);
   const descriptionElement = document.createElement('span');
   descriptionElement.innerText = todo.description;
