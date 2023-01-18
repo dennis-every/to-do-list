@@ -41,6 +41,10 @@ export default class Todo {
   static removeTodo = (index) => {
     newTodoArray = retrieveData();
     newTodoArray = newTodoArray.filter((element) => element.index.toString() !== index.toString());
-    storeData(newTodoArray);
+    const reIndexedArray = [];
+    newTodoArray.forEach((element, index) => {
+      reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
+    });
+    storeData(reIndexedArray);
   }
 }
