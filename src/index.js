@@ -5,6 +5,7 @@ import { appendToDOM } from './modules/handleDOM.js';
 import createShowElement from './modules/showTodo.js';
 import { retrieveData } from './modules/handleData.js';
 import { newTodoForm, newTodoFormHandler } from './modules/newTodoForm.js';
+import clearAllCompletedHandler from './modules/clearAllCompletedHandler.js';
 
 const loadElements = () => {
   let todoArray = [];
@@ -31,9 +32,20 @@ const loadEnterBtn = () => {
   enterBtn.setAttribute('class', 'icon');
 };
 
+const loadClearAllCompletedLink = () => {
+  const footer = document.getElementsByTagName('footer')[0];
+  const clearAllCompletedLink = document.createElement('a');
+  clearAllCompletedLink.setAttribute('id', 'clear-all-completed');
+  clearAllCompletedLink.setAttribute('href', '/');
+  clearAllCompletedLink.innerText = 'Clear all completed';
+  clearAllCompletedLink.addEventListener('click', clearAllCompletedHandler);
+  footer.appendChild(clearAllCompletedLink);
+};
+
 window.onload = () => {
   loadElements();
   loadRefreshBtn();
   loadEnterBtn();
+  loadClearAllCompletedLink();
   newTodoForm.addEventListener('submit', newTodoFormHandler);
 };

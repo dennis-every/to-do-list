@@ -83,6 +83,10 @@ footer > a {
   color: #888;
 }
 
+footer > a:hover {
+  text-decoration: underline;
+}
+
 .header-icon {
   height: 2rem;
 }
@@ -111,4 +115,8 @@ footer > a {
 
 .edit-todo-input:focus {
   outline: none;
+}
+
+.completed {
+  text-decoration: line-through;
 }
