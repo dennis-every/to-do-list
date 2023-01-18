@@ -42,7 +42,7 @@ export default class Todo {
     newTodoArray = retrieveData();
     newTodoArray = newTodoArray.filter((element) => element.index.toString() !== index.toString());
     const reIndexedArray = [];
-    newTodoArray.forEach((element, index) => {
+    newTodoArray.sort((a, b) => a.index - b.index).forEach((element, index) => {
       reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
     });
     storeData(reIndexedArray);
