@@ -32,7 +32,7 @@
 
 # 📖 To Do List <a name="about-project"></a>
 
-**To Do List** is a web page where the user can see a list of todos, they can also add or remove any todo to the list.
+**To Do List** is a web page where the user can see a list of todos, they can also add or remove any todo to the list. Todos are save to local storage.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -130,8 +130,8 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add local storage to save todos**
-- [ ] **Add functionality to add and remove todos**
+- [ ] **Make application more interactives**
+- [ ] **Ability to mark todos as completeds**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
