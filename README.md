@@ -32,7 +32,7 @@
 
 # 📖 To Do List <a name="about-project"></a>
 
-**To Do List** is a web page where the user can see a list of todos, they can also add or remove any todo to the list. Todos are save to local storage.
+**To Do List** is a web page where the user can see a list of todos, they can also add or remove todos to the list. Todos are saved to local storage.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,7 +79,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Currently Not Available]()
+- [To Do List](https://dennis-every.github.io/to-do-list/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,8 +130,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Make application more interactives**
-- [ ] **Ability to mark todos as completeds**
+- [ ] **None planned**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
