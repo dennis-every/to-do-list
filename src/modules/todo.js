@@ -45,7 +45,6 @@ export default class Todo {
     newTodoArray.sort((a, b) => a.index - b.index).forEach((element, index) => {
       reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
     });
-    storeData(reIndexedArray);
-    window.location.reload();
+    return storeData(reIndexedArray);
   }
 }
