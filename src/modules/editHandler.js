@@ -1,4 +1,4 @@
-// import Menu from '../images/ellipsis-vertical.svg';
+import Menu from '../images/ellipsis-vertical.svg';
 import createEditElement from './editTodo.js';
 import Todo from './todo.js';
 import createCheckboxElement from './checkboxElement.js';
@@ -17,7 +17,7 @@ const editHandler = (e) => {
   showElement.setAttribute('id', todo.index);
   // Create menuElement
   const menuElement = new Image();
-  // menuElement.src = Menu;
+  menuElement.src = Menu;
   menuElement.setAttribute('class', 'icon');
   // Add menuElement eventListener
   menuElement.addEventListener('click', (e) => {
