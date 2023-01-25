@@ -1,5 +1,5 @@
 import Todo from './todo.js';
-import Trash from '../images/trash-can.svg';
+// import Trash from '../images/trash-can.svg';
 import trashEventHandler from './trashHandler.js';
 import createCheckboxElement from './checkboxElement.js';
 
@@ -14,7 +14,7 @@ const createDescriptionElement = (description) => {
 
 const createTrashElement = () => {
   const trashElement = new Image();
-  trashElement.src = Trash;
+  // trashElement.src = Trash;
   trashElement.setAttribute('class', 'icon');
   trashElement.addEventListener('click', trashEventHandler);
   return trashElement;
