@@ -1,7 +1,6 @@
 import { storeData, retrieveData } from './handleData.js';
 
 let newTodoArray = [];
-
 export default class Todo {
   constructor(description, completed, index) {
     this.description = description;
@@ -43,6 +42,20 @@ export default class Todo {
     newTodoArray = newTodoArray.filter((element) => element.index.toString() !== index.toString());
     const reIndexedArray = [];
     newTodoArray.sort((a, b) => a.index - b.index).forEach((element, index) => {
+      reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
+    });
+    return storeData(reIndexedArray);
+  }
+
+  static clearAllCompleted = (todosArray) => {
+    let todos = todosArray;
+    todos.forEach((element) => {
+      if (element.completed) {
+        todos = todos.filter((todo) => todo.index.toString() !== element.index.toString());
+      }
+    });
+    const reIndexedArray = [];
+    todos.sort((a, b) => a.index - b.index).forEach((element, index) => {
       reIndexedArray.push(new Todo(element.description, element.completed, index + 1));
     });
     return storeData(reIndexedArray);
