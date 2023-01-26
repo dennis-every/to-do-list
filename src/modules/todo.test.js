@@ -36,3 +36,32 @@ describe('remove todo', () => {
     expect(list).toHaveLength(0);
   });
 });
+
+describe('Update todo', () => {
+  it('Update todo element being sent', () => {
+    const todoArr = [{ description: 'Desc', completed: false, index: 1 }];
+    //  Act
+    const arr = Todo.updateTodo(todo);
+    //  Assert
+    const { description } = arr[0];
+    expect(description).toEqual(todoArr[0].description);
+  });
+  it('Update todo different description', () => {
+    //  Arrange
+    const todoArr = [{ description: 'Description', completed: false, index: 1 }];
+    // Act
+    const arr = Todo.updateTodo(todo);
+    // Assert
+    const { description } = arr[0];
+    expect(description).not.toBe(todoArr[0].description);
+  });
+  it('Update todo description is modified', () => {
+    //  Arrange
+    const todo = new Todo('Descr', false, 1);
+    // Act
+    const arr = Todo.updateTodo(todo);
+    // Assert
+    const { description } = arr[0];
+    expect(description).toBe('Descr');
+  });
+});
