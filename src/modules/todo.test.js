@@ -37,7 +37,7 @@ describe('remove todo', () => {
   });
 });
 
-describe('Update todo', () => {
+describe('edit todo description', () => {
   it('Update todo element being sent', () => {
     const todoArr = [{ description: 'Desc', completed: false, index: 1 }];
     //  Act
@@ -63,5 +63,24 @@ describe('Update todo', () => {
     // Assert
     const { description } = arr[0];
     expect(description).toBe('Descr');
+  });
+});
+
+describe('edit todo checkbox', () => {
+  it('edits a todo checkbox in local storage', () => {
+    // Arrange
+    const completedTodo = { ...todo };
+    completedTodo.completed = true;
+
+    // Act
+    const updatedArr = Todo.updateTodo(completedTodo);
+    const completedArrElem = updatedArr.filter(
+      (e) => e.index === completedTodo.index,
+    );
+    const { completed } = completedArrElem[0];
+
+    // Assert
+    expect(completed).not.toBeFalsy();
+    expect(completed).toBeTruthy();
   });
 });
